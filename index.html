@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Professional Profile - A Portfolio of Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(26, 32, 44, 1), rgba(26, 32, 44, 0.9)), url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-strip img {
+            filter: grayscale(100%) brightness(200%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-strip img:hover {
+            filter: grayscale(0%) brightness(100%);
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            background-color: #4a5568;
+            height: 100%;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: -24px;
+            width: 12px;
+            height: 12px;
+            background-color: #06b6d4;
+            border-radius: 50%;
+            border: 2px solid #1a202c;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            /* 1:1 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="antialiased leading-relaxed">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">Fayez Moidu</a>
+            <nav class="mt-4 sm:mt-0">
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">About</a>
+                <a href="#education" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Education</a>
+                <a href="#achievements" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Achievements</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Portfolio</a>
+                <a href="#ventures" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Ventures</a>
+                <a href="#contact" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 px-4 rounded-full transition-colors ml-4">Book a call</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Home Section -->
+        <section id="home" class="p-8 rounded-xl shadow-lg mb-8 hero-bg">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h1 class="text-5xl font-bold text-white mb-4">Fayez Moidu</h1>
+                    <h2 class="text-2xl text-cyan-400 mb-4">Strategic Leader in Business Transformation & Enterprise Technology</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        I am a Business Process Consultant and Transformation Leader with more than 18 years of international experience helping organisations design strategies, execute large-scale change, and realise measurable business value enabling clients to navigate complexity and achieve sustainable growth.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        I support businesses in shaping operating models, rethinking processes, and delivering transformation roadmaps. I combine data driven strategic insight with hands-on leadership across company modernisation, family business modelling, cloud migration, data-driven decision making, and enterprise-wide change programs.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        My consulting journey has taken me across the UK and Europe, North and South America, the Middle East, and India, where I’ve partnered with senior executives and boards to lead business and technology transformations. In parallel, I have delivered training, workshops, and executive coaching in Europe, South Africa, the Middle East, India, and the Americas, equipping leaders and teams with the skills to drive lasting change.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        I am passionate about bridging the gap between business ambition and execution, guiding organisations through complex transformations — whether in strategy, operations, technology, or people.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#contact" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-3 px-6 rounded-full transition-colors text-center shadow-lg">Book a call</a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-full transition-colors text-center shadow-lg">Download PDF Profile</a>
+                    </div>
+                </div>
+                <!-- Profile Image Carousel -->
+                <div class="w-full md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
+                    <div class="carousel-container rounded-full shadow-lg w-48 h-48 sm:w-64 sm:h-64 border-4 border-gray-700">
+                        <img id="carousel-image-1" src="images/fayez_headshot.jpg" alt="Professional headshot" class="carousel-image active rounded-full" loading="lazy">
+                        <img id="carousel-image-2" src="https://placehold.co/400x400/374151/9CA3AF?text=Photo+2" alt="Professional photo 2" class="carousel-image rounded-full" loading="lazy">
+                        <img id="carousel-image-3" src="https://placehold.co/400x400/374151/9CA3AF?text=Photo+3" alt="Professional photo 3" class="carousel-image rounded-full" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Strip -->
+        <section class="bg-gray-900 py-6 px-4 rounded-xl shadow-lg mb-8">
+            <div class="container mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-12 logo-strip">
+                <img src="https://www.google.com/logos/google.svg" alt="Google Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/PwC_Logo.svg/1024px-PwC_Logo.svg.png" alt="PwC Logo" class="h-8" loading="lazy">
+                <img src="images/SAP_logo.jpeg" alt="SAP Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Forbes_logo.svg/1024px-Forbes_logo.svg.png" alt="Forbes Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Bloomberg_logo.svg/1024px-Bloomberg_logo.svg.png" alt="Bloomberg Logo" class="h-8" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/400x250/374151/9CA3AF?text=Cambridge+University" alt="Graduation photo from Cambridge University" class="rounded-lg shadow-md w-full max-w-sm object-cover mb-4" loading="lazy">
+                    <p class="text-gray-300 font-medium text-center">Cambridge University, UK</p>
+                    <p class="text-gray-400 text-sm text-center">Executive Master of Business Administration - 2022</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/400x250/374151/9CA3AF?text=University+of+Calicut" alt="Graduation photo from University of Calicut" class="rounded-lg shadow-md w-full max-w-sm object-cover mb-4" loading="lazy">
+                    <p class="text-gray-300 font-medium text-center">University of Calicut, India</p>
+                    <p class="text-gray-400 text-sm text-center">Bachelor Of Technology in Electronics and Communications Engineering (Honours) - 2004</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How I Help Section -->
+        <section class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">How I Help</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+
+                <!-- Business Consulting Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.5v17m1-15h11m-10 8h10m-10 8h8M7.5 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Business Consulting</h3>
+                    <p class="text-gray-400 text-sm">Providing data-driven strategic insights to help businesses shape operating models and achieve sustainable growth.</p>
+                </div>
+
+                <!-- Digital Transformation Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.142 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Digital Transformation</h3>
+                    <p class="text-gray-400 text-sm">Leading businesses through complex digital change for future-readiness and growth.</p>
+                </div>
+
+                <!-- Corporate Restructuring & Integration Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m-6 0v-9a2 2 0 012-2h2a2 2 0 012 2v9m-6 0a2 2 0 002 2h2a2 2 0 002-2"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Corporate Restructuring & Integration</h3>
+                    <p class="text-gray-400 text-sm">Seamlessly merging systems and operations post-acquisition for a smooth transition and operational harmony.</p>
+                </div>
+
+                <!-- Strategic Planning & Execution Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M17 16h.01"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Strategic Planning & Execution</h3>
+                    <p class="text-gray-400 text-sm">Crafting and implementing detailed roadmaps that align technology with business goals for maximum impact.</p>
+                </div>
+
+                <!-- Technology Leadership Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.033 3-9s-1.343-9-3-9m0 18v-9m0 9a9 9 0 01-9-9m9 9a9 9 0 00-9-9m-3 9h18"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Technology Leadership</h3>
+                    <p class="text-gray-400 text-sm">Providing expert guidance on cloud migration, data analytics, and enterprise technology for future-ready solutions.</p>
+                </div>
+
+                <!-- Executive Coaching & Workshops Card -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-7a4 4 0 01-4-4V8a4 4 0 014-4h7m4 4v12h-4m4-12a4 4 0 00-4-4h-7m4 4v12h-4m4-12a4 4 0 00-4-4h-7a4 4 0 00-4 4v12a4 4 0 004 4h7a4 4 0 004-4v-12m-4 12a4 4 0 004-4v-12a4 4 0 00-4-4h-7a4 4 0 00-4 4v12a4 4 0 004 4h7"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Executive Coaching & Workshops</h3>
+                    <p class="text-gray-400 text-sm">Empowering leaders and teams with the skills to drive sustainable change through targeted training and coaching.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Key Achievements</h2>
+            <div class="timeline-container">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-white">Delivered a comprehensive Digital Transformation roadmap for a multinational oil and gas company, resulting in a 15% increase in operational efficiency.</h3>
+                    <p class="text-gray-400 text-sm mt-1">2023</p>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-white">Successfully led the technology and operations integration for a major post-merger acquisition of a global retail chain, standardizing systems across three continents.</h3>
+                    <p class="text-gray-400 text-sm mt-1">2022</p>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-white">Designed and implemented a data-driven decision-making framework for a leading fintech startup, leading to a 25% reduction in time-to-market for new products.</h3>
+                    <p class="text-gray-400 text-sm mt-1">2021</p>
+                </div>
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-white">Developed and delivered a series of executive workshops on cloud migration strategies, training over 50 senior leaders across the Americas and Europe.</h3>
+                    <p class="text-gray-400 text-sm mt-1">2020</p>
+                </div>
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-white">Orchestrated the operational model redesign for a family business in the manufacturing sector, improving supply chain agility and reducing costs by 18%.</h3>
+                    <p class="text-gray-400 text-sm mt-1">2019</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Portfolio & Client Showcase</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/9CA3AF?text=Project+1" alt="Project 1 image" class="rounded-lg mb-4 w-full" loading="lazy">
+                    <h3 class="text-xl font-semibold text-white mb-2">Enterprise-Wide Change Program</h3>
+                    <p class="text-gray-400 text-sm">Led a multi-year program to overhaul core business processes and technology infrastructure for a Fortune 500 company.</p>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/9CA3AF?text=Project+2" alt="Project 2 image" class="rounded-lg mb-4 w-full" loading="lazy">
+                    <h3 class="text-xl font-semibold text-white mb-2">Cloud Migration Strategy</h3>
+                    <p class="text-gray-400 text-sm">Developed and executed a phased cloud migration strategy, moving critical applications and data to a secure cloud environment.</p>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/9CA3AF?text=Project+3" alt="Project 3 image" class="rounded-lg mb-4 w-full" loading="lazy">
+                    <h3 class="text-xl font-semibold text-white mb-2">Family Business Modernization</h3>
+                    <p class="text-gray-400 text-sm">Guided a third-generation family business through a complete modernization of their operational and leadership structure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ventures & Initiatives Section -->
+        <section id="ventures" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Ventures & Initiatives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Venture Card 1 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Mentorship Program</h3>
+                    <p class="text-gray-400 text-sm">Founder of a pro-bono mentorship program for aspiring business and technology consultants.</p>
+                </div>
+                <!-- Venture Card 2 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13.003l-3.23-3.23a4 4 0 00-5.656 0 4 4 0 000 5.656l5.657-5.657a2 2 0 012.828 0l2.828 2.828a2 2 0 010 2.828l-5.657 5.657a4 4 0 000 5.656 4 4 0 005.656 0l3.23-3.23a2 2 0 012.828 0l2.828 2.828a2 2 0 010 2.828l-5.657 5.657a4 4 0 00-5.656 0 4 4 0 000 5.656z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Published Author</h3>
+                    <p class="text-gray-400 text-sm">Contributor to industry publications on digital transformation and organizational change management.</p>
+                </div>
+                <!-- Venture Card 3 -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M17 11h.01M3 21h18a2 2 0 002-2V8a2 2 0 00-2-2H3a2 2 0 00-2 2v11a2 2 0 002 2zm1-9h16v10H4V10z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Thought Leadership Series</h3>
+                    <p class="text-gray-400 text-sm">Host of a popular webinar series exploring the future of work and technology.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-800 p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Let's Connect</h2>
+            <div class="max-w-xl mx-auto text-center">
+                <p class="text-gray-300 mb-6">If you are looking to drive transformative change in your organization, I would be happy to connect and explore how I can support your journey.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:info@fayezmoidu.com" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-3 px-6 rounded-full transition-colors shadow-lg">Send an Email</a>
+                    <a href="tel:+1234567890" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-full transition-colors shadow-lg">Call Me</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4">
+        <p class="text-sm">&copy; 2024 Fayez Moidu. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Image Carousel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselImages = document.querySelectorAll('.carousel-image');
+            let currentImageIndex = 0;
+            const totalImages = carouselImages.length;
+
+            function showNextImage() {
+                carouselImages[currentImageIndex].classList.remove('active');
+                currentImageIndex = (currentImageIndex + 1) % totalImages;
+                carouselImages[currentImageIndex].classList.add('active');
+            }
+
+            // Show the first image immediately
+            if (carouselImages.length > 0) {
+                carouselImages[0].classList.add('active');
+            }
+
+            // Change image every 5 seconds
+            setInterval(showNextImage, 5000);
+        });
+    </script>
+</body>
+
+</html>
