@@ -61,28 +61,42 @@
             border-radius: 50%;
             border: 2px solid #1a202c;
         }
-
+        
+        /* Carousel specific styles */
         .carousel-container {
             position: relative;
             width: 100%;
-            padding-top: 100%;
-            /* 1:1 Aspect Ratio */
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
         }
-
-        .carousel-image {
+        
+        .carousel-slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
             opacity: 0;
+            transition: opacity 1s ease-in-out;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
         }
 
-        .carousel-image.active {
-            opacity: 1;
+        .carousel-slide-img {
+            max-height: 150px;
+            width: auto;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -93,9 +107,8 @@
         <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
             <a href="#home" class="text-2xl font-bold text-white">Fayez Moidu</a>
             <nav class="mt-4 sm:mt-0">
-                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">About</a>
+                <a href="#home" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">About</a>
                 <a href="#education" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Education</a>
-                <a href="#achievements" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Achievements</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Portfolio</a>
                 <a href="#ventures" class="text-gray-300 hover:text-cyan-400 transition-colors px-3">Ventures</a>
                 <a href="#contact" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 px-4 rounded-full transition-colors ml-4">Book a call</a>
@@ -131,10 +144,16 @@
                 </div>
                 <!-- Profile Image Carousel -->
                 <div class="w-full md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
-                    <div class="carousel-container rounded-full shadow-lg w-48 h-48 sm:w-64 sm:h-64 border-4 border-gray-700">
-                        <img id="carousel-image-1" src="images/fayez_headshot.jpg" alt="Professional headshot" class="carousel-image active rounded-full" loading="lazy">
-                        <img id="carousel-image-2" src="https://placehold.co/400x400/374151/9CA3AF?text=Photo+2" alt="Professional photo 2" class="carousel-image rounded-full" loading="lazy">
-                        <img id="carousel-image-3" src="https://placehold.co/400x400/374151/9CA3AF?text=Photo+3" alt="Professional photo 3" class="carousel-image rounded-full" loading="lazy">
+                    <div class="carousel-container rounded-xl shadow-lg w-full h-80 sm:w-96 sm:h-96 border-4 border-gray-700">
+                        <div class="carousel-slide active">
+                            <img src="IMG_3853.jpg" alt="Professional headshot" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="suit pose.png" alt="Professional photo 2" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="22CL04-8.jpg" alt="Professional photo 3" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,27 +162,48 @@
         <!-- Logo Strip -->
         <section class="bg-gray-900 py-6 px-4 rounded-xl shadow-lg mb-8">
             <div class="container mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-12 logo-strip">
-                <img src="https://www.google.com/logos/google.svg" alt="Google Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/University_of_Cambridge_coat_of_arms.svg/1024px-University_of_Cambridge_coat_of_arms.svg.png" alt="Cambridge University Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/1024px-SAP_2011_logo.svg.png" alt="SAP Logo" class="h-8" loading="lazy">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/PwC_Logo.svg/1024px-PwC_Logo.svg.png" alt="PwC Logo" class="h-8" loading="lazy">
-                <img src="images/SAP_logo.jpeg" alt="SAP Logo" class="h-8" loading="lazy">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Forbes_logo.svg/1024px-Forbes_logo.svg.png" alt="Forbes Logo" class="h-8" loading="lazy">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Bloomberg_logo.svg/1024px-Bloomberg_logo.svg.png" alt="Bloomberg Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nokia_2023_logo.svg/1024px-Nokia_2023_logo.svg.png" alt="Nokia Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Vestas_logo.svg/1024px-Vestas_logo.svg.png" alt="Vestas Logo" class="h-8" loading="lazy">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Welsh_Water_logo.svg/1024px-Welsh_Water_logo.svg.png" alt="Welsh Water Logo" class="h-8" loading="lazy">
             </div>
         </section>
 
         <!-- Education Section -->
         <section id="education" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
             <h2 class="text-3xl font-bold text-white mb-6 text-center">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/400x250/374151/9CA3AF?text=Cambridge+University" alt="Graduation photo from Cambridge University" class="rounded-lg shadow-md w-full max-w-sm object-cover mb-4" loading="lazy">
-                    <p class="text-gray-300 font-medium text-center">Cambridge University, UK</p>
-                    <p class="text-gray-400 text-sm text-center">Executive Master of Business Administration - 2022</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/400x250/374151/9CA3AF?text=University+of+Calicut" alt="Graduation photo from University of Calicut" class="rounded-lg shadow-md w-full max-w-sm object-cover mb-4" loading="lazy">
-                    <p class="text-gray-300 font-medium text-center">University of Calicut, India</p>
-                    <p class="text-gray-400 text-sm text-center">Bachelor Of Technology in Electronics and Communications Engineering (Honours) - 2004</p>
+            <div class="flex flex-col items-center">
+                <!-- Combined Education Carousel -->
+                <div id="education-carousel" class="carousel-container rounded-lg shadow-md w-full max-w-sm h-96 border-4 border-gray-700">
+
+                    <!-- Cambridge Slide -->
+                    <div class="carousel-slide active">
+                        <img src="20220401_103435(0).jpg" alt="Fayez in graduation robes at Cambridge University" class="carousel-slide-img rounded-lg object-cover mb-4" loading="lazy">
+                        <div class="carousel-slide-content">
+                            <p class="text-gray-300 font-medium">Cambridge University, UK</p>
+                            <p class="text-gray-400 text-sm">Executive Master of Business Administration - 2022</p>
+                        </div>
+                    </div>
+
+                    <!-- Cambridge Logo Slide -->
+                    <div class="carousel-slide">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/University_of_Cambridge_coat_of_arms.svg/1024px-University_of_Cambridge_coat_of_arms.svg.png" alt="Cambridge University Logo" class="carousel-slide-img rounded-lg object-contain p-4" loading="lazy">
+                        <div class="carousel-slide-content mt-auto mb-4">
+                            <p class="text-gray-300 font-medium">Cambridge University, UK</p>
+                            <p class="text-gray-400 text-sm">Executive Master of Business Administration - 2022</p>
+                        </div>
+                    </div>
+
+                    <!-- Calicut Slide -->
+                    <div class="carousel-slide">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/University_of_Calicut_Logo.png/250px-University_of_Calicut_Logo.png" alt="University of Calicut Logo" class="carousel-slide-img rounded-lg object-contain p-4" loading="lazy">
+                        <div class="carousel-slide-content mt-auto mb-4">
+                            <p class="text-gray-300 font-medium">University of Calicut, India</p>
+                            <p class="text-gray-400 text-sm">Bachelor Of Technology in Electronics and Communications Engineering (Honours) - 2004</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -230,38 +270,6 @@
             </div>
         </section>
 
-        <!-- Achievements Section -->
-        <section id="achievements" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">Key Achievements</h2>
-            <div class="timeline-container">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <h3 class="text-xl font-semibold text-white">Delivered a comprehensive Digital Transformation roadmap for a multinational oil and gas company, resulting in a 15% increase in operational efficiency.</h3>
-                    <p class="text-gray-400 text-sm mt-1">2023</p>
-                </div>
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <h3 class="text-xl font-semibold text-white">Successfully led the technology and operations integration for a major post-merger acquisition of a global retail chain, standardizing systems across three continents.</h3>
-                    <p class="text-gray-400 text-sm mt-1">2022</p>
-                </div>
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item">
-                    <h3 class="text-xl font-semibold text-white">Designed and implemented a data-driven decision-making framework for a leading fintech startup, leading to a 25% reduction in time-to-market for new products.</h3>
-                    <p class="text-gray-400 text-sm mt-1">2021</p>
-                </div>
-                <!-- Timeline Item 4 -->
-                <div class="timeline-item">
-                    <h3 class="text-xl font-semibold text-white">Developed and delivered a series of executive workshops on cloud migration strategies, training over 50 senior leaders across the Americas and Europe.</h3>
-                    <p class="text-gray-400 text-sm mt-1">2020</p>
-                </div>
-                <!-- Timeline Item 5 -->
-                <div class="timeline-item">
-                    <h3 class="text-xl font-semibold text-white">Orchestrated the operational model redesign for a family business in the manufacturing sector, improving supply chain agility and reducing costs by 18%.</h3>
-                    <p class="text-gray-400 text-sm mt-1">2019</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Portfolio Section -->
         <section id="portfolio" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
             <h2 class="text-3xl font-bold text-white mb-6 text-center">Portfolio & Client Showcase</h2>
@@ -284,6 +292,12 @@
                     <h3 class="text-xl font-semibold text-white mb-2">Family Business Modernization</h3>
                     <p class="text-gray-400 text-sm">Guided a third-generation family business through a complete modernization of their operational and leadership structure.</p>
                 </div>
+                <!-- Project Card 4 - School Turnaround & Growth Initiative -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/9CA3AF?text=Project+4" alt="Project 4 image" class="rounded-lg mb-4 w-full" loading="lazy">
+                    <h3 class="text-xl font-semibold text-white mb-2">School Turnaround & Growth Initiative</h3>
+                    <p class="text-gray-400 text-sm">Led a strategic financial and operational turnaround for a struggling school, reversing a 40% revenue deficit and increasing enrollment by over 90% in just five months.</p>
+                </div>
             </div>
         </section>
 
@@ -291,29 +305,45 @@
         <section id="ventures" class="bg-gray-800 p-8 rounded-xl shadow-lg mb-8">
             <h2 class="text-3xl font-bold text-white mb-6 text-center">Ventures & Initiatives</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Venture Card 1 -->
+                <!-- Venture Card 1 - AI N Tech Ltd -->
                 <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
-                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-cyan-400 mb-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9.932 16.03a3.75 3.75 0 005.158 0L15.904 15.904M18.75 8.25v4.5m-4.5-4.5h4.5m-4.5 0c-1.155 0-2.253.153-3.303.427L8.75 8.25m4.5 0a9.75 9.75 0 11-4.831-7.227c.45.034.899.079 1.348.134a9.75 9.75 0 013.483 7.093M12 21a9.75 9.75 0 01-5.176-1.428l2.966-2.224m-.343.343a4.5 4.5 0 006.364 0l-6.364-6.364z" />
                     </svg>
-                    <h3 class="text-xl font-semibold text-white mb-2">Mentorship Program</h3>
-                    <p class="text-gray-400 text-sm">Founder of a pro-bono mentorship program for aspiring business and technology consultants.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Founder & Director, AI N Tech Ltd (UK)</h3>
+                    <p class="text-gray-400 text-sm">A consulting company for enterprise architecture, digital transformation, and IT consulting.</p>
                 </div>
-                <!-- Venture Card 2 -->
+                <!-- Venture Card 2 - Marlow Properties Ltd -->
                 <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
-                    <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13.003l-3.23-3.23a4 4 0 00-5.656 0 4 4 0 000 5.656l5.657-5.657a2 2 0 012.828 0l2.828 2.828a2 2 0 010 2.828l-5.657 5.657a4 4 0 000 5.656 4 4 0 005.656 0l3.23-3.23a2 2 0 012.828 0l2.828 2.828a2 2 0 010 2.828l-5.657 5.657a4 4 0 00-5.656 0 4 4 0 000 5.656z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-cyan-400 mb-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12m-4.5-5.25v5.25a2.25 2.25 0 01-2.25 2.25H15m3.75-2.25H15m4.5 0a2.25 2.25 0 00-2.25-2.25H15" />
                     </svg>
-                    <h3 class="text-xl font-semibold text-white mb-2">Published Author</h3>
-                    <p class="text-gray-400 text-sm">Contributor to industry publications on digital transformation and organizational change management.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Founder & Director, Marlow Properties Ltd (UK)</h3>
+                    <p class="text-gray-400 text-sm">A real estate company focused on property investment and development.</p>
                 </div>
-                <!-- Venture Card 3 -->
+                <!-- Venture Card 3 - Clozy Ltd -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-cyan-400 mb-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21L11.25 3.75v6.75h-7.5l9.75 6.75v-6.75z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Co-Founder & Director, Clozy Ltd (UK)</h3>
+                    <p class="text-gray-400 text-sm">A start-up building a digital platform for property exchanges.</p>
+                </div>
+                <!-- Venture Card 4 - Sirajul Uloom School -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-cyan-400 mb-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.156L10.5 4.5l6.24 5.656A4.5 4.5 0 0115 15.5V18a2 2 0 01-2 2H6a2 2 0 01-2-2v-2.5a4.5 4.5 0 01.26-5.344z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-white mb-2">Managing Director, Sirajul Uloom School (India)</h3>
+                    <p class="text-gray-400 text-sm">An educational institution where you lead modernization and digital initiatives.</p>
+                </div>
+                <!-- Speaker & Trainer Card -->
                 <div class="bg-gray-700 p-6 rounded-xl shadow-md transition-transform hover:scale-105">
                     <svg class="w-12 h-12 text-cyan-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M17 11h.01M3 21h18a2 2 0 002-2V8a2 2 0 00-2-2H3a2 2 0 00-2 2v11a2 2 0 002 2zm1-9h16v10H4V10z"></path>
                     </svg>
-                    <h3 class="text-xl font-semibold text-white mb-2">Thought Leadership Series</h3>
-                    <p class="text-gray-400 text-sm">Host of a popular webinar series exploring the future of work and technology.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Speaker & Trainer</h3>
+                    <p class="text-gray-400 text-sm">Delivered keynotes and workshops on topics including technology leadership, enterprise architecture, and change management at international conferences and universities.</p>
                 </div>
             </div>
         </section>
@@ -340,23 +370,27 @@
     <!-- JavaScript for Image Carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const carouselImages = document.querySelectorAll('.carousel-image');
-            let currentImageIndex = 0;
-            const totalImages = carouselImages.length;
+            function initializeCarousels() {
+                const carousels = document.querySelectorAll('.carousel-container');
 
-            function showNextImage() {
-                carouselImages[currentImageIndex].classList.remove('active');
-                currentImageIndex = (currentImageIndex + 1) % totalImages;
-                carouselImages[currentImageIndex].classList.add('active');
+                carousels.forEach(carousel => {
+                    const slides = carousel.querySelectorAll('.carousel-slide');
+                    let currentSlideIndex = 0;
+                    const totalSlides = slides.length;
+
+                    if (totalSlides > 0) {
+                        slides[0].classList.add('active');
+
+                        setInterval(() => {
+                            slides[currentSlideIndex].classList.remove('active');
+                            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+                            slides[currentSlideIndex].classList.add('active');
+                        }, 5000);
+                    }
+                });
             }
 
-            // Show the first image immediately
-            if (carouselImages.length > 0) {
-                carouselImages[0].classList.add('active');
-            }
-
-            // Change image every 5 seconds
-            setInterval(showNextImage, 5000);
+            initializeCarousels();
         });
     </script>
 </body>
