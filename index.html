@@ -98,6 +98,18 @@
             width: auto;
             object-fit: contain;
         }
+
+        /* Styles for the filename overlay */
+        .filename-overlay {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
     </style>
 </head>
 
@@ -147,12 +159,15 @@
                     <div class="carousel-container rounded-xl shadow-lg w-full h-80 sm:w-96 sm:h-96 border-4 border-gray-700">
                         <div class="carousel-slide active">
                             <img src="IMG_3853.jpg" alt="Professional headshot" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                            <div class="filename-overlay">IMG_3853.jpg</div>
                         </div>
                         <div class="carousel-slide">
                             <img src="suit pose.png" alt="Professional photo 2" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                            <div class="filename-overlay">suit pose.png</div>
                         </div>
                         <div class="carousel-slide">
                             <img src="22CL04-8.jpg" alt="Professional photo 3" class="rounded-xl object-contain h-full w-full" loading="lazy">
+                            <div class="filename-overlay">22CL04-8.jpg</div>
                         </div>
                     </div>
                 </div>
@@ -185,6 +200,7 @@
                             <p class="text-gray-300 font-medium">Cambridge University, UK</p>
                             <p class="text-gray-400 text-sm">Executive Master of Business Administration - 2022</p>
                         </div>
+                        <div class="filename-overlay">20220401_103435(0).jpg</div>
                     </div>
 
                     <!-- Cambridge Logo Slide -->
@@ -194,6 +210,7 @@
                             <p class="text-gray-300 font-medium">Cambridge University, UK</p>
                             <p class="text-gray-400 text-sm">Executive Master of Business Administration - 2022</p>
                         </div>
+                        <div class="filename-overlay">Cambridge Logo</div>
                     </div>
 
                     <!-- Calicut Slide -->
@@ -203,6 +220,7 @@
                             <p class="text-gray-300 font-medium">University of Calicut, India</p>
                             <p class="text-gray-400 text-sm">Bachelor Of Technology in Electronics and Communications Engineering (Honours) - 2004</p>
                         </div>
+                        <div class="filename-overlay">Calicut Logo</div>
                     </div>
                 </div>
             </div>
